@@ -30,6 +30,8 @@ ol, ul {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     font-family: Lexend, sans-serif;
     position: center;
     background-image: url("assets/organic-shape-30fps.png");
@@ -38,7 +40,8 @@ body {
     min-width: 100%;
     min-height: 100%;
     line-height: 1.5;
-    padding: 3rem 4rem 2.5rem 4rem
+    padding: 3rem 4rem 2.5rem 4rem;
+    color: #C1F8FE;
 }
 
 a{
@@ -76,6 +79,11 @@ h1 {
     line-height: 100px;
     max-width: 700px;
     padding-top: 4rem;
+}
+
+h2 {
+    font-size: 2rem;
+    padding-top: 7rem;
 }
 
 .header-dot {
@@ -161,6 +169,56 @@ h1 {
 
 .together {
     color:#ff00b3;
+}
+
+.testimonial-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.testimonial-section div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.testimonial-block1  {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+.testimonial-block2  {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1rem;
+    align-items: center;
+}
+.testimonial-section img {
+    border-radius: 50%;
+}
+
+.profile-image-and-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    padding-top: 2.5rem;
 }
 
 form {
