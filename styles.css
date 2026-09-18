@@ -203,6 +203,10 @@ h2 {
     border-radius: 50%;
 }
 
+.quote {
+    font-size: 1.2rem;
+}
+
 .profile-image-and-name {
     display: flex;
     flex-direction: column;
