@@ -89,7 +89,9 @@ h2 {
 .header-dot {
     color: #ff00b3;
 }
-
+.together-dot {
+    color: #C1F8FE;
+}
 .card {
     align-items: center;
     justify-content: center;
