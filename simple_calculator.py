@@ -1,21 +1,21 @@
-# 1) First, the input variables.
-# These variables prompt the user to type in the numbers to be calculated.
+# 1) First, I need the input variables. This allows the user to type the first number.
 first_number = input("Enter your first number: ")
 
-# 2) Next, Operation Validation
-# Keeps the user in a loop until he/she enters a valid operation. Anything typed here is constantly checked. If allowed, the loop breaks.
+# 2) Next, Operation Validation. Did the user enter +, -, *, or /?
 allowed_operations = "+-*/"
+# Keeps the user in a loop until he/she enters a valid operation. Anything typed here is constantly checked. If allowed, the loop breaks.
 while True:
     chosen_operation = input("Choose an operation (+, -, *, or /): ")    
-    # Character check for the chosen operation.
+# If what the user chose is not part of the allowed operations (+ - * /), try again.
     if chosen_operation not in allowed_operations:
         print("Error *** Please only choose from +, -, *, or /.***")
     else:
         break # Loop finally breaks. The user is freed from the loop once a valid operation is chosen.
 
+# 3) Now the user is able to type the second number.
 second_number = input("Enter your second number: ")
 
-# 3) Next, the input validation for the numbers.
+# 4) Next, the input validation for the numbers.
 # NOTE: isdigit() is a string method; it only works on strings and breaks on numbers.
 # .replace() removes any decimal points before checking if the numbers are digit (using isdigit()).
 if not first_number.replace(".", "").isdigit():
@@ -30,7 +30,7 @@ else:
     multiplication = f"{first_number} * {second_number} = {first_number * second_number}"
     division = f"{first_number} / {second_number} = {first_number / second_number}"
 
-# 4) Finally, the function that performs the calculation and gives us the answer.
+# 5) Finally, the function that performs the calculation and gives us the answer.
 def perform_operation():
     if chosen_operation == "+":
         return addition
