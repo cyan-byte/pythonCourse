@@ -1,16 +1,16 @@
-# # We start with i equaling zero
-# i = 0
-# # This variable will store what i is at the turn of each loop in the for loop below
+# We start with i equaling zero
+i = 0
+# This variable will store what i is at the turn of each loop in the for loop below
 # The For Version (I like this one better):
-# even_sum1 = 0
-# # This means, every time we iterate over the numbers 1 - 50, if the numbers are even, we're adding the current "number i" to even_sum.
-# # So on the first loop, i
-# for i in range(1,51):
-#     if i % 2 == 0:
-#         print(i)
-#         even_sum1 += i
+even_sum1 = 0
+# This means, every time we iterate over the numbers 1 - 50, if the numbers are even, we're adding the current "number i" to even_sum.
+# So on the first loop, i
+for i in range(1,51):
+    if i % 2 == 0:
+        print(i)
+        even_sum1 += i
 
-# print(even_sum1)
+print(f"For loop result: {even_sum1}")
 
 # ============================================================================================================
 
@@ -25,4 +25,4 @@ while j in range(1,51):
         print(j)
     j += 1 # Increment each turn by 1 so the loop counts up to 50 (range(1,51))
 
-print(even_sum2)
+print(f"While loop result: {even_sum2}")
