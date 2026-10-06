@@ -10,7 +10,7 @@ def get_user_response1():
         # it gets a 1 when compared to the & operator which needs both bits to be 1
         # 0b1
         # 0b1
-        # ^^ place them in the bitmasking binary columns and you get two 1s in the 1 row, meaning "True"
+        # ^^ place them in the bitmasking binary columns and you get two 1s in the 1 row, meaning "True". Now user gets blue skies.
         if user_result1 & 0b1:
             print("You get normal blue skies.")
         
