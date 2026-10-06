@@ -4,7 +4,7 @@ house_number_list = [8841, 72, 29, 1822]
 # Find the number of items inside the list.
 list_amount = len(house_number_list) # equals 4
 
-# Count the total number of attempts, (not the list index positions like the inner loop does. This is the inner loop, btw: for i in range(length - 1)
+# Count the total number of attempts, (not the list index positions like the inner loop does.
 for all_loop_turns in range(list_amount): # makes sure the inner loop gets to check through the full list each time (not just part of it), so we use list_amount here (since we NEEED to know how many items are in the list in the first place)
 
 # Grab the item at index i (current index), and check if it is larger than its neighbor immediately to its right (index i + 1)
@@ -53,7 +53,7 @@ print(house_number_list)
 
 # Find the number of items inside the list.
 
-# Count the total number of attempts, (not the list index positions like the inner loop does. This is the inner loop, btw: for i in range(length - 1)
+# Count the total number of attempts, (not the list index positions like the inner loop does.
 
 # makes sure the inner loop gets to check through the full list each time (not just part of it), so we use list_amount here (since we NEEED to know how many items are in the list in the first place)
 
