@@ -73,7 +73,8 @@ print(house_number_list)
 # year_of_birth = [1862, 1981, 1492, 1776]
 # # Find the number of items inside the list.
 # number_of_birth_years = len(year_of_birth)
-# # Count the total number of attempts, (not the list index positions like the inner loop does. This is the inner loop, btw: for i in range(length - 1)
+# # Count the total number of attempts, (not the list index positions like the inner loop does.
+
 # # makes sure the inner loop gets to check through the full list each time (not just part of it), so we use list_amount here (since we NEEED to know how many items are in the list in the first place)
 # for each_year in range(number_of_birth_years):
 # # Look at the whole list again (minus 1) and grab the item at index i (current index), and check if it is larger than its neighbor immediately to its right (index i + 1)
