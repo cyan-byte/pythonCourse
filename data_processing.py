@@ -1,3 +1,5 @@
+# ================================  Part 1  ==========================================
+
 # This function calcuates the average of any grades entered into the tuple. It even handles the ZeroDivisionError
 def get_average_grade(grades_tuple = (87, 90, 95, 95)):
     # This keeps track of the grades
@@ -23,3 +25,21 @@ def get_average_grade(grades_tuple = (87, 90, 95, 95)):
 
 # Here, I get to make the function work and see the results, using one line
 print(get_average_grade())
+
+
+# =====================================  Part 2  ==========================================
+
+
+course_grades = {
+    "MERN Stack": (80, 76, 85,),
+    "Python Essentials": (98, 99, 82),
+    "Math": (80, 76, 89),
+}
+
+for key, value in course_grades.items():
+    try:
+        average = get_average_grade(value)
+        print(f"The average grade for {key} is {average}")
+
+    except ZeroDivisionError:
+        print("No grades found. Try again.")
