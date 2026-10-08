@@ -5,8 +5,8 @@ contact_book = {
     "Alisha": "555-1234",
     "My Mama": "555-5678",
     "BFF": "555-9101",
-    "MSIC": "555-1121",
-    "MBIC": "555-3141",
+    "Sister IC": "555-1121",
+    "Brother IC": "555-3141",
     "Spam": "555-8000"
 }
 # ========================  Add Contact  =========================
@@ -46,15 +46,25 @@ contact_book = {
 
 
 # ========================  Delete Contact  =========================
+# Too many calls from this suspicious company I have saved. 
+# Time to delete it.
+# User enters a name to search for
 delete_a_contact = input("Which entry do you want to delete? ")
 
 def delete_contact():
+    # and if it is in the contact book, it's getting deleted (as long as it passes the try net...)
     if delete_a_contact in contact_book:
+        # If the name is found, it deletes the entry
         try:
             del contact_book[delete_a_contact]
+            
+            # I consider this line good UX writing. It tells you the entry is deleted, stating back its name (no confusion)
             print(f"{delete_a_contact} is deleted.")
+        # Not found? Try again.    
         except:
             print("Try again")
+    # If the user enters something not found in the contact book, there's an error message:
     else:
         print(f"I did not find \"{delete_a_contact}\" in your contacts. Is it spelled correctly?")
 delete_contact()
+print(contact_book)
