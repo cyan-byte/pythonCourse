@@ -23,7 +23,8 @@ def safe_divide(a,b):
     # COMMENT OUT THE ERROR(S) ABOVE TO SEE THIS except Exception WORK.
     except Exception as error_message:
         print(f"This is a the actual system error: {error_message}")
-    
+    # This prints whether the try block is successful or if it fails and falls into an error
     finally:
         print("Division operation completed (whether or not an error occured).")
+# Because I'm trying to divide 20 by a list, I run into a TypeError
 safe_divide(20, list[8])
