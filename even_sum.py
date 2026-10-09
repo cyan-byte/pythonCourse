@@ -1,3 +1,5 @@
+# TASK: GET THE SUM OF ALL EVEN NUMBERS FROM 1 - 50.
+# =================================================================
 # We start with i equaling zero
 i = 0
 # This variable will store what i is at the turn of each loop in the for loop below
