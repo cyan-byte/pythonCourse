@@ -4,14 +4,20 @@ house_number_list = [8841, 72, 29, 1822]
 # Find the number of items inside the list.
 list_amount = len(house_number_list) # equals 4
 
-# Count the total number of attempts, (not the list index positions like the inner loop does.
-for all_loop_turns in range(list_amount): # makes sure the inner loop gets to check through the full list each time (not just part of it), so we use list_amount here (since we NEEED to know how many items are in the list in the first place)
+# Outer Loop: Count the total number of attempts, (not the list index positions like the inner loop does.
+# Step 1: Where are we looking?:
+for all_loop_turns in range(list_amount): # OUTER LOOP'S JOB: it only sits in the background, counting the total number of complete laps.
+    # This makes sure the inner loop gets to check through the full list each time (not just part of it). We use list_amount here (since we NEEED to know how many items are in the list in the first place)
+    # On the first turn of the loop, the index sits at 0, waiting for the inner loop to finish walking the entire list from begining to end before it clicks over to index 1
 
 # Grab the item at index i (current index), and check if it is larger than its neighbor immediately to its right (index i + 1)
-    for index in range(list_amount - 1):
+# So first, we find out where we're looking:
+# The next line means "Walk down the list item-by-item, but stop exactly one slot before the very last item"
+# This range can also be saved into a variable, by the way.
+    for index in range(list_amount - 1): # INNER LOOP'S JOB: Step through each index number (one by one), using those index numbers to compare and swap the side-by-side items in teh list. Once it reaches the end of its index range, it stops, waits for the outerloop teo move to the next turn, and then resets back to index 0 to start counting down the list all over again. <------ THIS!
         if house_number_list[index] > house_number_list[index + 1]:
 
-# If the item on the left is bigger than the item on the right, do the tuple unpacking swap to flip their positions
+# If the item on the left is bigger than the item on the right, do the tuple-unpacking-swap to flip their positions
             house_number_list[index], house_number_list[index + 1] = house_number_list[index + 1], house_number_list[index]
 print(house_number_list)
 
