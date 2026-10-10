@@ -61,25 +61,31 @@ def run_app():
 
             view_contacts()
 
-        # =========================  Search for a Contact  =========================  
-
+# =========================  Search for a Contact  =========================  
+        # If user chooses menu option 3, she/he will be taken to the search contacts part of the app
         elif menu_choice == "3":
 
         #This function allows my user to type in a name and search for it
-                
-            def search_contacts():
-                if find_contact in contact_book:
-                    for key, value in contact_book.items():
-                        print(f"{key} {value}")
+            # It takes the user input which is the variable "user_query"    
+            def search_contacts(user_query):
+                # to weed out confusion, I used the .lower() string operation with dot notation to change the input to all lowercase.
+                lower_cased_query = user_query.lower()
+                # This means, search through the contact name and phone in contact book
+                for contact_name, contact_phone in contact_book.items():
+                    # and if you find this user input (which was turned into lowercase characters)
+                    if lower_cased_query in contact_name.lower():
+                        # display the name and phone number of that found entry
+                        print(f"{contact_name} {contact_phone}")
+            # This prompts the user to enter a name (or part of a name)
+            user_query = input("Enter a name to search for: ")
+            search_contacts(user_query)
 
-            find_contact = input("Enter a name to search for: ")
-            search_contacts()
 
+# ========================  Delete Contact  =========================
         elif menu_choice == "4":
-        # ========================  Delete Contact  =========================
 
-        # Hmm... Too many calls from this suspicious company I have saved. 
-        # Time to delete it.
+        # "Hmm... Getting too many calls from this suspicious company I have saved. 
+        # Time to delete it."
         # User enters a name to search for
 
             def delete_contact(delete_a_contact):
@@ -89,7 +95,7 @@ def run_app():
                     try:
                         del contact_book[delete_a_contact]
                         
-                        # I consider this line good UX writing. It tells you the entry is deleted, stating back its name (no confusion)
+# I consider this line good UX writing. It tells the user the entry is deleted, stating back its name (no confusion)
                         print(f"{delete_a_contact} is deleted.")
                     # Not found? Try again.    
                     except:
@@ -97,13 +103,19 @@ def run_app():
                 # If the user enters something not found in the contact book, there's an error message:
                 else:
                     print(f"I did not find \"{delete_a_contact}\" in your contacts. Is it spelled correctly?")
+
+            # This is the argument that the function takes at execution
             delete_a_contact = input("Which entry do you want to delete? ")
+            # This line deletes the entry
             delete_contact(delete_a_contact)
+            # and this one shows the evidence of deletion by reloading the remaining contacts
             print(contact_book)
+            # This is the final menu choice, which exits the app with a farewell and a break statement.
         elif menu_choice == "5":
             print("Goodbye!")
             break
             
 # This checks if this script is the script being called before it runs the function    
 if __name__ == "__main__":
+    # This runs the app and loads the main menu with the initial prompt to enter a menu number.
     run_app()
