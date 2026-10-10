@@ -43,7 +43,7 @@ def run_app():
             add_contact(contact_name, contact_phone)
 
             print(contact_book)
-
+            run_app()
 
         # ========================  View All Contacts  =========================
                 
@@ -60,8 +60,11 @@ def run_app():
                         print(key, value)
 
             view_contacts()
+            run_app()
 
+        
 # =========================  Search for a Contact  =========================  
+        
         # If user chooses menu option 3, she/he will be taken to the search contacts part of the app
         elif menu_choice == "3":
 
@@ -76,12 +79,15 @@ def run_app():
                     if lower_cased_query in contact_name.lower():
                         # display the name and phone number of that found entry
                         print(f"{contact_name} {contact_phone}")
+                    else:
+                        print(f"{user_query} not found.")
             # This prompts the user to enter a name (or part of a name)
             user_query = input("Enter a name to search for: ")
             search_contacts(user_query)
-
+            run_app()
 
 # ========================  Delete Contact  =========================
+
         elif menu_choice == "4":
 
         # "Hmm... Getting too many calls from this suspicious company I have saved. 
@@ -110,6 +116,10 @@ def run_app():
             delete_contact(delete_a_contact)
             # and this one shows the evidence of deletion by reloading the remaining contacts
             print(contact_book)
+            run_app()
+
+# ===========================  Exit the App  =============================
+
             # This is the final menu choice, which exits the app with a farewell and a break statement.
         elif menu_choice == "5":
             print("Goodbye!")
