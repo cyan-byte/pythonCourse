@@ -11,7 +11,7 @@ square_root = sqrt(random_integer)
 # Finally, it rounds the rounded number using floor division
 rounded_integer = floor(square_root)
 
-# These are the results of the function calculations and the Windows system information and Python version
+# These statements print the results of the functions, the Windows system information, and the Python version
 print(f"Random integer is: {random_integer}")
 print(f"Square root of the random integer is: {square_root}")
 print(f"Floored square root is: {rounded_integer}")
