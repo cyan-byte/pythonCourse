@@ -26,6 +26,7 @@ def remove_number():
         print(f"\033[92m {removed_number} has been removed.\033[0m")
         # Here's the updated list after the number was removed
         print(f"\033[92m Updated list: {int_list}\033[0m")
+    # This throws an error if the inputted index is not found
     except IndexError:
         print(f"\033[91m **** Error: Index not found in this list. ****\033[0m")
 
@@ -54,7 +55,7 @@ def run_app():
         user_selection = input("Select a Menu Option: ").lower()
         # if what the user selects is in the menu_validation list (above)...,
         if user_selection.lower() in menu_validation and user_selection.isalpha():
-            # ... try this. This tells you what happens if the user selects each option fromt the menu
+            # ... try this. This tells you what happens if the user selects each option from the menu
             try:
                 if user_selection == "a":
                     add_number()
@@ -65,7 +66,7 @@ def run_app():
                 elif user_selection == "d":
                     quit_app()
                     break
-            # if the user selects something invalid, they'll get an error message:
+        # if the user selects something invalid, they'll get an error message in red:
             except ValueError:
                 print("\033[91m**** Invalid selection. Please try again. ****\033[0m")
         else:
