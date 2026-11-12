@@ -69,22 +69,28 @@ class SavingsAccount(BankAccount):
         # These two lines set the variables as attributes of the object
         self.interest_rate = interest_rate
         self.maintenance_fee = maintenance_fee
-
+    # This allows me to print the account information
     def __str__(self):
         return f"\033[93mAccount #{self.account_number}\033[0m Owner: {self.owner}; Balance: ${self.balance}; Interest Rate: {self.interest_rate}%; Maintenance Fee: ${self.maintenance_fee}"
-
+    # This method multiplies the interest with the savings account balance
     def apply_interest(self):
         return self.interest_rate * self.balance
-
+# This is the savings account! (with interest rate and starting balance)
 account2 = SavingsAccount(.05, 0)
+# Tries to deposit an amount (positive or negative)
 try:
     account2.deposit(-5)
     print(f"\033[92mSuccessfuly added to Savings Account!")
+# if it's negative, it throws an error message    
 except ValueError as e:
     print(f"\033[91m{e}\033[0m")
+# Tries to withdraw an amount
 try:
     account2.withdraw(80)
+# This error will print if there is an issue
 except ValueError as e:
     print(f"\033[91m{e}\033[0m")
+# This displays the savings account info + the interest info
 print(account2.__str__())
+# This displays the interest calculation
 print(f"Applied interest: ${account2.apply_interest()}")
