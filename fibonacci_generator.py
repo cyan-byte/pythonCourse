@@ -1,6 +1,8 @@
 
 def gen_fibonacci(n):
+    # current_number might be a better name
     zero = 0
+    # next_number might be a better name
     one = 1
     # This underscore variable is what Python allows if you don't want to USE the variable,
     # but only want the loop to repeat for the range(n), for example.
@@ -15,6 +17,7 @@ def gen_fibonacci(n):
 
         # *** ISSUE *** At first, I had one + 1, not zero + one and it only added 1 to each number instead of the Fibonacci sequence...
         # But each new Fibonacci number is the sum of the two previous variables
+        # current number, next number = next number, current number plus next number
         zero, one = one, zero + one
 
 # This simply checks if the current file is the current "main" file. If so, it executes the following blocks
