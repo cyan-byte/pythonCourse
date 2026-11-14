@@ -94,3 +94,4 @@ except ValueError as e:
 print(account2.__str__())
 # This displays the interest calculation
 print(f"Applied interest: ${account2.apply_interest()}")
+
