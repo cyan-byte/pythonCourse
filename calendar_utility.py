@@ -5,12 +5,14 @@ from datetime import date
 year = int(input("Enter a year (YYYY): "))
 month = int(input("Enter a month (MM): "))
 
-# This gives us today's date
+# This gives us today's date saved into the date_for_today variable
 date_for_today = date.today()
 # And this is the formatted date where %B = the full month name, %d = the day of the month, and %Y = the 4-digit year.
+# The from-iso-format function converts YYYY-MM-DD to
+# The strftime() functon converts a Python date object (year, onth, day) into a custom-formatted text string (or from a datetime object)
 formatted_date = date.fromisoformat(f"{date_for_today}").strftime("%B %d, %Y")
 
-# If the user enters today's date...
+# If the user enters today's date and it matches the current date...
 if date_for_today.year == year and date_for_today.month == month:
     # They'll get a clear statment on today's date
     print(f"Today is {formatted_date}")
