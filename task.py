@@ -16,7 +16,7 @@ class Task:
         status = "[X]" if self.completed else "[-]"
         # Returns completed string value with the title of the string
         return f"{status} {self.title}"
-    # This is a manager function, not a class method
+    # This is a class method, not a manager function
     def task_complete(self):
         # If I have multiple Task objects in my list, 'self' points to the exact one I called using .task_complete() so Python only marks THAT task and not the others.
         self.completed = True
@@ -112,20 +112,23 @@ def complete_task():
         print(f"{e} Enter numbers only.")
 
 def delete_task():
-
     if not tasks:
         print("Task list is empty.")
         return
+    list_tasks()
     try:
         # Takes user's numerical input and converts it into an integer
         deleted_task = int(input("Which task number do you want to delete? ")) -1
         # Shows the full list of saved tasks
-        list_tasks()
         if 0 <= deleted_task < len(tasks):
             # This takes the tasks list, used the user's input as the index (-1) and deletes that task
-            tasks[deleted_task].pop(tasks) # .pop() calls on the tasks list
+            # Issue: I had this at first:
+            # "tasks[deleted_task].pop(tasks)" here at first. That would call .pop() on a Task object instead of the tasks list
+            # This is what it should be:
+            removed_task = tasks.pop(deleted_task)
+            # .pop() calls on the tasks list
             # This allows the user to see just which task was deleted
-            print(f"Deleted: {deleted_task}")
+            print(f"Deleted: {removed_task}")
         else:
             # The input is out of range and throws an error print statemetn
             print("Enter a valid number. ")
@@ -133,14 +136,35 @@ def delete_task():
         print(f"{e}: Enter numbers only.")
 
 def run_app():
+    # Issue:
+    #      I had while True: above load_tasks() at first, but that would cause the tasks to be loaded on every turn of the loop
+    load_tasks()
     while True:
-        load_tasks()
         # Displays the available menu optoins to the console
         print("\n*** To-Do List Menu ***")
-        print("(A) Add a new task")
-        print("(C) Mark a task as completed")
-        print("(D) Delete a task")
-        print("(L) List all tasks")
-        print("(Q) Quit")
-        menu_choice = input("Choose an option (A, C, D, L, or Q)")
-        if menu_choice == a
+        print("(A) Add a new task ")
+        print("(C) Mark a task as completed ")
+        print("(D) Delete a task ")
+        print("(L) List all tasks ")
+        print("(Q) Quit ")
+        # Takes the user input and removes any leading/trailing spaces and makes the input lowercase
+        menu_choice = input("Choose an option (A, C, D, L, or Q): ").strip().lower()
+
+        if menu_choice == "a":
+            add_task()
+        elif menu_choice == "c":
+            complete_task()
+        elif menu_choice == "d":
+            delete_task()
+        elif menu_choice == "l":
+            list_tasks()
+        elif menu_choice == "q":
+            # Issue: At first, I didn't have save_tasks here, so nothing was actually being saved to my TASKS_FILE
+            save_tasks()
+            print("Have a nice day.")
+            # break ends the loop and ends the program
+            break
+        else:
+            print("Invalid menu letter.")
+if __name__ == "__main__":
+    run_app()
