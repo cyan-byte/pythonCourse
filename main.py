@@ -15,7 +15,7 @@ def run_app():
         print("(Q) Quit ")
         # Takes the user input and removes any leading/trailing spaces and makes the input lowercase
         menu_choice = input("Choose an option (A, C, D, L, or Q): ").strip().lower()
-
+        # Checks the user's menu choice
         if menu_choice == "a":
             add_task()
         elif menu_choice == "c":

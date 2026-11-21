@@ -1,3 +1,4 @@
+# Import the operating system module to handle opening, reading, and saving files
 import os
 # This line looks into the task.py file and imports the Task class
 from task import Task
@@ -13,6 +14,7 @@ def save_tasks():
     # This line is aligned with the try block in this function, so as soon as the user enters his/her input, the try-except block gets to work
     save_file = input("Do you want to save your tasks file? (Y/N) ")
     try:
+        # The user's input gets put through .strip() which removes any leading or trailing spaces and changes it to lowercase
         if save_file.strip().lower() == "y":
             # This line is how the file actually gets saved
             # Python must first open (or unlock) the file using open()
@@ -54,10 +56,13 @@ def load_tasks():
 
 def add_task():
     # The user types in a task and .strip() removes any extra spaces at the beginning or end of the task string and saves it into a variable named "title".
+    # This string will be used to create the Task object below Task()
     title = input("Enter a task: ").strip()
     # This checks if the user actually typed something (to make it truthy)
     if title:
         # The user's task gets added to the Task object and saved to the end of the tasks[] list
+        # Here is that Task object/instance mentioned above (Task contains self.title and self.completed [False as a default])
+        # So the title, the status and the string get saved as the actual Task object
         tasks.append(Task(title))
         print("Task added.")
     # This handles blank inputs because title must be truthy to add it to the tasks list.
@@ -105,7 +110,7 @@ def delete_task():
         deleted_task = int(input("Which task number do you want to delete? ")) -1
         # Shows the full list of saved tasks
         if 0 <= deleted_task < len(tasks):
-            # This takes the tasks list, used the user's input as the index (-1) and deletes that task
+            # This takes the tasks list, uses the user's input as the index (-1), and deletes that task
             # Issue: I had this at first:
             # "tasks[deleted_task].pop(tasks)" here at first. That would call .pop() on a Task object instead of the tasks list
             # This is what it should be:
@@ -114,7 +119,7 @@ def delete_task():
             # This allows the user to see just which task was deleted
             print(f"Deleted: {removed_task}")
         else:
-            # The input is out of range and throws an error print statemetn
+            # The input is out of range and throws an error print statement
             print("Enter a valid number. ")
     except ValueError as e:
         print(f"{e}: Enter numbers only.")
